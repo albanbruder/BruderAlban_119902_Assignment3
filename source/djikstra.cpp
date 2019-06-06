@@ -43,6 +43,8 @@ void Djikstra::djikstra(std::shared_ptr<GraphNode> source)
 std::vector<std::shared_ptr<GraphNode>> Djikstra::path(std::shared_ptr<GraphNode> const& target) const
 {
   std::vector<std::shared_ptr<GraphNode>> shortestPath;
+
+  // target is not reachable
   if(target->distance() == std::numeric_limits<unsigned int>::max()) {
     return shortestPath;
   }
