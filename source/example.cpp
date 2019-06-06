@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 
   Djikstra djikstra{ graph };
 
-  std::vector<std::shared_ptr<GraphNode>> sources{muenchen};
+  std::vector<std::shared_ptr<GraphNode>> sources{berlin, braunschweig, stuttgart};
 
   for(auto source : sources) {
     std::cout << "SOURCE: " << source->label() << std::endl << std::endl;
