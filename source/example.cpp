@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
   auto nuernberg        = graph.add("Nürnberg");
   auto stuttgart        = graph.add("Stuttgart");
   auto weimar           = graph.add("Weimar");
-  auto wuppertal        = graph.add("Wuppertal");
+  auto essen            = graph.add("Essen");
 
   augsburg->connect(stuttgart, 164);
   augsburg->connect(muenchen, 79);
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
   bremen->connect(hannover, 127);
 
-  dortmund->connect(wuppertal, 70);
+  dortmund->connect(essen, 70);
   dortmund->connect(bremen, 234);
 
   duesseldorf->connect(moenchengladbach, 85);
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
   mannheim->connect(frankfurt, 124);
 
-  moenchengladbach->connect(wuppertal, 33);
+  moenchengladbach->connect(essen, 33);
 
   muenchen->connect(freiburg, 351);
   muenchen->connect(nuernberg, 169);
@@ -85,8 +85,8 @@ int main(int argc, char *argv[])
   weimar->connect(leipzig, 130);
   weimar->connect(jena, 23);
 
-  wuppertal->connect(gelsenkirchen, 48);
-  wuppertal->connect(duesseldorf, 53);
+  essen->connect(gelsenkirchen, 48);
+  essen->connect(duesseldorf, 53);
 
   Djikstra djikstra{ graph };
 
