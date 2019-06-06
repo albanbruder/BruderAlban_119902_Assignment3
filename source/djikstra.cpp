@@ -29,7 +29,7 @@ void Djikstra::djikstra(std::shared_ptr<GraphNode> source)
     if(parent->distance() < std::numeric_limits<unsigned int>::max()) {
       for(auto p : parent->adjacentNodes()) {
         unsigned int distance = parent->distance() + p.second;
-        if(p.first->parent() == nullptr || distance < p.first->distance()) {
+        if(distance < p.first->distance()) {
           p.first->parent(parent);
           p.first->distance(distance);
         }
