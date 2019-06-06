@@ -90,6 +90,7 @@ int main(int argc, char *argv[])
 
   Djikstra djikstra{ graph };
 
+  // Iterate over the cities in sources and run djikstra algorithm for each of them.
   std::vector<std::shared_ptr<GraphNode>> sources{berlin, braunschweig, stuttgart};
 
   for(auto source : sources) {
@@ -112,10 +113,8 @@ int main(int argc, char *argv[])
             continue;
           }
 
-          std::cout << wp->parent()->distance();
-
-          std::cout << "  " << wp->parent()->label() << " --> " << wp->label();
-          std::cout << " (" << wp->parent()->connectionDistance(wp) << "km)" << std::endl;
+          std::cout << "  " << wp->parent()->label() << " --> " << wp->label()
+                    << " (" << wp->parent()->connectionDistance(wp) << "km)" << std::endl;
         }
         std::cout << std::endl;
       } else {
