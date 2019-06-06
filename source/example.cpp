@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 
   Djikstra djikstra{ graph };
 
-  std::vector<std::shared_ptr<GraphNode>> sources{berlin, braunschweig, mannheim};
+  std::vector<std::shared_ptr<GraphNode>> sources{muenchen};
 
   for(auto source : sources) {
     std::cout << "SOURCE: " << source->label() << std::endl << std::endl;
@@ -108,12 +108,14 @@ int main(int argc, char *argv[])
         std::cout << " to " << node->label() << " (" << node->distance() << "km):" << std::endl;
 
         for(auto wp : path) {
-          if(wp == djikstra.source()) {
+          if(wp == source) {
             continue;
           }
 
+          std::cout << wp->parent()->distance();
+
           std::cout << "  " << wp->parent()->label() << " --> " << wp->label();
-          std::cout << " (" << (wp->distance() - wp->parent()->distance()) << "km)" << std::endl;
+          std::cout << " (" << wp->parent()->connectionDistance(wp) << "km)" << std::endl;
         }
         std::cout << std::endl;
       } else {

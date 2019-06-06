@@ -112,6 +112,12 @@ public:
   void disconnect(std::shared_ptr<GraphNode> const& node);
 
   /**
+   * Get the distance to a given node.
+   * Will return std::numeric_limits<unsigned int>::max() if there is no connection.
+   */
+  unsigned int connectionDistance(std::shared_ptr<GraphNode> const& node);
+
+  /**
    * Get all adjacent nodes.
    */
   std::map<std::shared_ptr<GraphNode>, unsigned int> adjacentNodes() const;

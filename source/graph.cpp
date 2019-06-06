@@ -118,6 +118,16 @@ void GraphNode::disconnect(std::shared_ptr<GraphNode> const& node)
   adjacentNodes_.erase(node);
 }
 
+unsigned int GraphNode::connectionDistance(std::shared_ptr<GraphNode> const& node)
+{
+  auto it = adjacentNodes_.find(node);
+  if(it == std::end(adjacentNodes_)) {
+    return std::numeric_limits<unsigned int>::max();
+  }
+
+  return it->second;
+}
+
 std::map<std::shared_ptr<GraphNode>, unsigned int> GraphNode::adjacentNodes() const
 {
   return adjacentNodes_;
